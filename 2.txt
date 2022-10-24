@@ -1,0 +1,41 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		int nums1[]={1,4,7,8,10};
+		int nums2[]={2,3,9};
+		int m=5,n=3;
+        int i=0;
+        for(;i<m;i++)
+        {
+            if(nums1[i]<=nums2[0])
+                continue;
+            int q=nums1[i];
+            nums1[i]=nums2[0];
+            nums2[0]=q;
+            //Arrays.sort(nums2);
+            for(int h=1;h<n;h++)
+            {
+                if(nums2[h-1]>nums2[h])
+                {
+                    int a=nums2[h-1];
+                    nums2[h-1]=nums2[h];
+                    nums2[h]=a;
+                }
+            }
+        }
+        for(int h=0;h<m;h++)
+            System.out.print(nums1[h]+" ");
+        System.out.println(); 
+        for(int h=0;h<n;h++)
+            System.out.print(nums2[h]+" ");
+	}
+}
