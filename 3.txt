@@ -1,0 +1,58 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		int nums1[]={1,4,7,8,10};
+		int nums2[]={2,3,9};
+		int m=5,n=3;
+		int gap=(m+n)/2,r=(m+n)%2;
+		gap+=r;
+        for(;gap>=1;)
+        {
+            int i=0,j=i+gap;
+            for(;i<m && j<m;i++,j++)
+            {
+                if(nums1[i]>nums1[j])
+                {
+                    int a=nums1[i];
+                    nums1[i]=nums1[j];
+                    nums1[j]=a;
+                }
+            }
+            j-=m;
+            for(;i<m && j<n;i++,j++)
+            {
+                if(nums1[i]>nums2[j])
+                {
+                    int a=nums1[i];
+                    nums1[i]=nums2[j];
+                    nums2[j]=a;
+                }
+            }
+            i-=m;
+            for(;i<n && j<n;i++,j++)
+            {
+                if(nums2[i]>nums2[j])
+                {
+                    int a=nums2[i];
+                    nums2[i]=nums2[j];
+                    nums2[j]=a;
+                }
+            }
+            gap/=2;
+        }
+        for(int h=0;h<m;h++)
+            System.out.print(nums1[h]+" ");
+        System.out.println(); 
+        for(int h=0;h<n;h++)
+            System.out.print(nums2[h]+" ");
+	}
+}
